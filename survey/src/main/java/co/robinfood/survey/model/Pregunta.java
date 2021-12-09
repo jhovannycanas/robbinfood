@@ -23,4 +23,9 @@ public class Pregunta extends AbstractBase {
     @JsonIgnore
     @OneToMany(mappedBy = "pregunta", cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     private List<OpcionRespuesta> opcionRespuestas = new ArrayList<>();
+
+    public void addOpcionRespuesta(OpcionRespuesta opcionRespuesta) {
+        this.opcionRespuestas.add(opcionRespuesta);
+        opcionRespuesta.setPregunta(this);
+    }
 }

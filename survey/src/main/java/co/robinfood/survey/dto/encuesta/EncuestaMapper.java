@@ -27,5 +27,4 @@ public interface EncuestaMapper {
     PreguntaDto encuestaPreguntaToDot(EncuestaPregunta encuestaPregunta);
 
 
-
 }

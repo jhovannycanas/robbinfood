@@ -23,8 +23,8 @@ public class Formulario extends AbstractBase {
     private List<Respuesta> respuestas = new ArrayList<>();
 
     public void addRespuesta(List<Respuesta> respuestas) {
-        for (Respuesta respuesta:
-        respuestas) {
+        for (Respuesta respuesta :
+                respuestas) {
             respuesta.setFormulario(this);
             respuesta.setFechaCreacion(new Date());
         }
