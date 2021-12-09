@@ -1,0 +1,28 @@
+app:
+  name: survey
+  description: ${app.name} is a Spring Boot application
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/surveys
+    username: postgres
+    password: admin
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_schema: public
+        globally_quoted_identifiers: true
+        format_sql: true
+        jdbc:
+          time_zone: ${TIME_ZONE:UTC}
+      org:
+        hibernate:
+          envers:
+            default_schema: public
+            store_data_at_delete: true
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.xml
