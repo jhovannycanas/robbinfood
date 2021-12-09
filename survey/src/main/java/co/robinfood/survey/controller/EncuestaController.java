@@ -17,7 +17,7 @@ public class EncuestaController {
 
     private final EncuestaService encuestaService;
 
-    @GetMapping
+    @GetMapping(value = "/{id}")
     public ResponseEntity<EncuestaResponse> getEncuesta(@PathVariable Long id) {
         return new ResponseEntity<EncuestaResponse>(encuestaService.getEncuesta(id), HttpStatus.OK);
     }

@@ -8,8 +8,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_encuesta")
@@ -21,7 +21,7 @@ public class Encuesta extends AbstractBase {
 
     @JsonIgnore
     @OneToMany(mappedBy = "encuesta", cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
-    private Set<EncuestaPregunta> encuestaPreguntas = new HashSet<>();
+    private List<EncuestaPregunta> encuestaPreguntas = new ArrayList<>();
 
     public void addPregunta(EncuestaPregunta encuestaPregunta) {
         this.encuestaPreguntas.add(encuestaPregunta);

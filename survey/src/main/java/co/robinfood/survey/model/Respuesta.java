@@ -1,5 +1,6 @@
 package co.robinfood.survey.model;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -12,6 +13,7 @@ import javax.persistence.Table;
 @Table(name = "tbl_respuesta")
 @Data
 @EqualsAndHashCode(callSuper = false)
+@Builder
 public class Respuesta extends AbstractBase {
 
     @ManyToOne

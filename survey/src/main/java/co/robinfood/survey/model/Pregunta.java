@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_pregunta")
@@ -22,5 +22,5 @@ public class Pregunta extends AbstractBase {
 
     @JsonIgnore
     @OneToMany(mappedBy = "pregunta", cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
-    private Set<OpcionRespuesta> opcionRespuestas = new HashSet<>();
+    private List<OpcionRespuesta> opcionRespuestas = new ArrayList<>();
 }

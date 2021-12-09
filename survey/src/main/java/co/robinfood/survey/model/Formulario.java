@@ -8,8 +8,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_formulario")
@@ -19,5 +20,14 @@ public class Formulario extends AbstractBase {
 
     @JsonIgnore
     @OneToMany(mappedBy = "formulario", cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
-    private Set<Respuesta> respuestas = new HashSet<>();
+    private List<Respuesta> respuestas = new ArrayList<>();
+
+    public void addRespuesta(List<Respuesta> respuestas) {
+        for (Respuesta respuesta:
+        respuestas) {
+            respuesta.setFormulario(this);
+            respuesta.setFechaCreacion(new Date());
+        }
+        this.respuestas.addAll(respuestas);
+    }
 }
